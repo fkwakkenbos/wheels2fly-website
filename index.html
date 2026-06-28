@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wheels 2 Fly — Mobility Without Limits</title>
+  <title>Wheels 2 Fly — Affordable Modular Wheelchair | Mobility Without Limits</title>
+  <meta name="description" content="Wheels 2 Fly builds the Polaris — a modular, flat-pack wheelchair targeting €250. Self-assembly, local repair, community production. Deploying in Zambia.">
+  <meta name="author" content="Wheels 2 Fly">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wheels2fly.com/">
+
+  <!-- Open Graph / SERP -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wheels2fly.com/">
+  <meta property="og:title" content="Wheels 2 Fly — Affordable Modular Wheelchair for Everyone">
+  <meta property="og:description" content="The Polaris: a flat-pack, self-assembly wheelchair targeting €250 — designed for local production and repair in Zambia and beyond.">
+  <meta property="og:site_name" content="Wheels 2 Fly">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wheels 2 Fly — Affordable Modular Wheelchair">
+  <meta name="twitter:description" content="The Polaris: a flat-pack, self-assembly wheelchair targeting €250 — designed for local production and repair in Zambia and beyond.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B1C20'/><circle cx='32' cy='32' r='22' stroke='%23F7F6F3' stroke-width='2' fill='none'/><line x1='32' y1='10' x2='32' y2='54' stroke='%23F7F6F3' stroke-width='1.5' stroke-linecap='round'/><line x1='10' y1='32' x2='54' y2='32' stroke='%23F7F6F3' stroke-width='1.5' stroke-linecap='round'/><line x1='16.5' y1='16.5' x2='47.5' y2='47.5' stroke='%23F7F6F3' stroke-width='1.5' stroke-linecap='round'/><line x1='47.5' y1='16.5' x2='16.5' y2='47.5' stroke='%23F7F6F3' stroke-width='1.5' stroke-linecap='round'/><circle cx='32' cy='32' r='4' fill='%23F7F6F3'/><path d='M 13 50 C 22 40 36 24 51 14' stroke='%238B5CF6' stroke-width='5' fill='none' stroke-linecap='round'/></svg>">
+  <meta name="theme-color" content="#6B3FA0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -274,19 +296,146 @@ img, video { max-width: 100%; height: auto; }
     .stripe-light {
       background: repeating-linear-gradient(-45deg, #E8E4DE 0, #E8E4DE 1px, #F0EDE7 1px, #F0EDE7 14px);
     }
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      width: auto;
+      height: auto;
+      background: #6B3FA0;
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      outline: 2px solid #8B5CF6;
+      outline-offset: 2px;
+    }
+    :focus-visible {
+      outline: 2px solid #8B5CF6;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    cite { font-style: normal; }
+
+    /* ── Cursor ring ── */
+    .cursor-ring {
+      position: fixed;
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid rgba(139, 92, 246, 0.55);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      top: 0; left: 0;
+      will-change: transform;
+      transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .cursor-ring.visible { opacity: 1; }
+    .cursor-ring.is-hovering {
+      width: 52px;
+      height: 52px;
+      border-color: rgba(139, 92, 246, 0.28);
+    }
+
+    /* ── Click ripple ── */
+    .ripple-btn { position: relative; overflow: hidden; }
+    .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.28);
+      transform: scale(0);
+      animation: ripple-expand 0.65s linear forwards;
+      pointer-events: none;
+    }
+    @keyframes ripple-expand {
+      to { transform: scale(1); opacity: 0; }
+    }
+
+    /* ── Card tilt ── */
+    .card-tilt { will-change: transform; }
   </style>
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://wheels2fly.com/#organization",
+        "name": "Wheels 2 Fly",
+        "url": "https://wheels2fly.com",
+        "email": "hello@wheels2fly.com",
+        "description": "Wheels 2 Fly designs the Polaris — an affordable, modular, flat-pack wheelchair for self-assembly and local repair, targeting deployment in Zambia and beyond.",
+        "foundingLocation": { "@type": "Place", "name": "Delft, Netherlands" },
+        "founder": [
+          { "@type": "Person", "name": "Johan Nieuwendijk", "jobTitle": "Co-founder & Biomechanical Engineer" },
+          { "@type": "Person", "name": "Thomas Maas", "jobTitle": "Co-founder & User Expert" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://wheels2fly.com/#website",
+        "url": "https://wheels2fly.com",
+        "name": "Wheels 2 Fly",
+        "publisher": { "@id": "https://wheels2fly.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://wheels2fly.com/#webpage",
+        "url": "https://wheels2fly.com",
+        "name": "Wheels 2 Fly — Affordable Modular Wheelchair | Mobility Without Limits",
+        "description": "Wheels 2 Fly builds the Polaris — a modular, flat-pack wheelchair targeting €250. Self-assembly, local repair, community production. Deploying in Zambia.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://wheels2fly.com/#website" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://wheels2fly.com/#polaris",
+        "name": "Polaris Wheelchair",
+        "description": "A fully modular, flat-pack wheelchair for self-assembly, independent maintenance, and local repair. Poka-Yoke connection system — no specialist or manual required.",
+        "brand": { "@type": "Brand", "name": "Wheels 2 Fly" },
+        "manufacturer": { "@id": "https://wheels2fly.com/#organization" },
+        "category": "Wheelchair",
+        "offers": {
+          "@type": "Offer",
+          "price": "250",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/PreOrder",
+          "seller": { "@id": "https://wheels2fly.com/#organization" }
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="font-sans bg-cream text-ink antialiased">
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ── NAVIGATION ── -->
-  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/[0.07]"
+  <nav aria-label="Main navigation"
+       class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/[0.07]"
        style="background: rgba(27,28,32,0.97)"
        x-data="{ open: false }">
     <div class="max-w-[1200px] mx-auto px-10 h-[66px] flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 no-underline">
-        <svg width="36" height="36" viewBox="0 0 64 64" fill="none">
+      <a href="#hero" aria-label="Wheels 2 Fly — go to homepage" class="flex items-center gap-3 no-underline">
+        <svg aria-hidden="true" focusable="false" width="36" height="36" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="27" stroke="#F7F6F3" stroke-width="2.5"/>
           <line x1="32" y1="5" x2="32" y2="59" stroke="#F7F6F3" stroke-width="1.8" stroke-linecap="round"/>
           <line x1="5" y1="32" x2="59" y2="32" stroke="#F7F6F3" stroke-width="1.8" stroke-linecap="round"/>
@@ -308,17 +457,21 @@ img, video { max-width: 100%; height: auto; }
         <a href="#how"       class="text-cream/60 text-sm font-medium no-underline hover:text-cream transition-colors duration-150">Approach</a>
         <a href="#impact"    class="text-cream/60 text-sm font-medium no-underline hover:text-cream transition-colors duration-150">Impact</a>
         <a href="#team"      class="text-cream/60 text-sm font-medium no-underline hover:text-cream transition-colors duration-150">Team</a>
-        <a href="#partners"  class="bg-purple-brand text-white text-[13px] font-semibold no-underline px-5 py-2 rounded-md hover:bg-purple-deep transition-colors duration-150">Partner With Us</a>
+        <a href="#partners"  class="bg-purple-brand text-white text-[13px] font-semibold no-underline px-5 py-2 rounded-md hover:bg-purple-deep transition-colors duration-150 btn-magnetic ripple-btn">Partner With Us</a>
       </div>
 
       <!-- Hamburger -->
-      <button class="md:hidden text-cream p-1" @click="open = !open" aria-label="Toggle menu">
-        <svg x-show="!open" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <button class="md:hidden text-cream p-1"
+              @click="open = !open"
+              :aria-expanded="open"
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu">
+        <svg aria-hidden="true" focusable="false" x-show="!open" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <line x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <svg x-show="open" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none">
+        <svg aria-hidden="true" focusable="false" x-show="open" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none">
           <line x1="4" y1="4"  x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           <line x1="20" y1="4" x2="4"  y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -326,7 +479,8 @@ img, video { max-width: 100%; height: auto; }
     </div>
 
     <!-- Mobile menu -->
-    <div x-show="open"
+    <div id="mobile-menu"
+         x-show="open"
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-2"
          x-transition:enter-end="opacity-100 translate-y-0"
@@ -337,355 +491,365 @@ img, video { max-width: 100%; height: auto; }
       <a href="#how"       @click="open=false" class="text-cream/70 text-[15px] font-medium no-underline hover:text-cream">Approach</a>
       <a href="#impact"    @click="open=false" class="text-cream/70 text-[15px] font-medium no-underline hover:text-cream">Impact</a>
       <a href="#team"      @click="open=false" class="text-cream/70 text-[15px] font-medium no-underline hover:text-cream">Team</a>
-      <a href="#partners"  @click="open=false" class="bg-purple-brand text-white text-sm font-semibold no-underline px-5 py-3 rounded-md text-center hover:bg-purple-deep transition-colors">Partner With Us</a>
+      <a href="#partners"  @click="open=false" class="bg-purple-brand text-white text-sm font-semibold no-underline px-5 py-3 rounded-md text-center hover:bg-purple-deep transition-colors ripple-btn">Partner With Us</a>
     </div>
   </nav>
 
+  <main id="main-content">
 
-  <!-- ── HERO ── -->
-  <section id="hero" class="min-h-screen pt-[66px] flex items-center"
-           style="background: radial-gradient(ellipse 90% 80% at 75% 50%, rgba(107,63,160,0.14) 0%, #1B1C20 55%)">
-    <div class="max-w-[1200px] mx-auto px-10 py-20 w-full grid md:grid-cols-[1fr_0.85fr] gap-20 items-center">
+    <!-- ── HERO ── -->
+    <section id="hero" aria-labelledby="hero-heading"
+             class="min-h-screen pt-[66px] flex items-center"
+             style="background: radial-gradient(ellipse 90% 80% at 75% 50%, rgba(107,63,160,0.14) 0%, #1B1C20 55%)">
+      <div class="max-w-[1200px] mx-auto px-10 py-20 w-full grid md:grid-cols-[1fr_0.85fr] gap-20 items-center">
 
-      <div>
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 border rounded-full px-[14px] py-[5px] mb-9"
-             style="background: rgba(139,92,246,0.14); border-color: rgba(139,92,246,0.3)">
-          <span class="w-1.5 h-1.5 rounded-full bg-purple-vivid flex-shrink-0 inline-block"></span>
-          <span class="text-[#a78bfa] text-[11px] font-semibold tracking-[0.1em] uppercase">Proof of Principle · 2026</span>
-        </div>
-
-        <h1 class="text-cream text-[64px] font-bold leading-[1.02] tracking-[-0.045em] mb-[26px]">
-          Engineering<br>Freedom.<br><span class="text-purple-vivid">Empowering</span><br>Lives.
-        </h1>
-        <p class="text-cream/60 text-[18px] leading-[1.65] mb-[42px] max-w-[420px]">
-          A modular, flat-pack wheelchair for everyone — designed for self-assembly, local repair, and community production in the places that need it most.
-        </p>
-        <div class="flex gap-[14px] flex-wrap">
-          <a href="#product"   class="inline-block bg-purple-brand text-white text-[15px] font-semibold no-underline px-7 py-[14px] rounded-lg hover:bg-purple-deep transition-colors duration-150">Meet the Polaris →</a>
-          <a href="#challenge" class="inline-block text-cream/70 text-[15px] font-medium no-underline px-7 py-[14px] rounded-lg hover:text-cream transition-all duration-150"
-             style="border: 1.5px solid rgba(247,246,243,0.18)">Our Story</a>
-        </div>
-      </div>
-
-      <!-- Image placeholder -->
-      <div class="relative">
-        <div class="h-[500px] rounded-2xl stripe-dark flex flex-col items-center justify-center gap-4"
-             style="border: 1px solid rgba(255,255,255,0.07)">
-          <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="27" stroke="rgba(247,246,243,0.14)" stroke-width="2"/>
-            <line x1="32" y1="5" x2="32" y2="59" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="5" y1="32" x2="59" y2="32" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="32" cy="32" r="4" fill="rgba(247,246,243,0.14)"/>
-            <path d="M 6 52 C 20 40 38 22 57 10" stroke="rgba(139,92,246,0.45)" stroke-width="5" fill="none" stroke-linecap="round"/>
-          </svg>
-          <span class="text-[12px] font-medium tracking-[0.08em]" style="color: rgba(247,246,243,0.22)">Product photography — Polaris Wheelchair</span>
-        </div>
-        <!-- Floating stat -->
-        <div class="absolute bottom-7 left-7 rounded-xl px-[22px] py-4 backdrop-blur-xl"
-             style="background: rgba(27,28,32,0.92); border: 1px solid rgba(255,255,255,0.1)">
-          <div class="text-purple-vivid text-[34px] font-bold tracking-[-0.04em] leading-none">€250</div>
-          <div class="text-cream/50 text-[12px] font-medium mt-0.5">Target price per wheelchair</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── THE CHALLENGE ── -->
-  <section id="challenge" class="bg-cream py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto">
-
-      <div class="mb-[60px]">
-        <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Challenge</span>
-        <h2 class="text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] mb-5 max-w-[680px]">Millions live without access to a wheelchair.</h2>
-        <p class="text-muted text-[18px] leading-[1.65] max-w-[600px]">The WHO estimates tens of millions of people need a wheelchair but cannot access one. The barriers are consistent — and preventable.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-xl p-9 border border-ink/[0.07]">
-          <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-          </div>
-          <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Too Expensive</h3>
-          <p class="text-muted text-[15px] leading-[1.65]">Standard NGO wheelchairs cost around $395 — unaffordable for most families without external subsidy or international aid.</p>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white rounded-xl p-9 border border-ink/[0.07]">
-          <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
-          </div>
-          <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Hard to Maintain</h3>
-          <p class="text-muted text-[15px] leading-[1.65]">Repairs require specialist technicians. In remote areas, a broken wheelchair can mean weeks without mobility and independence.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-white rounded-xl p-9 border border-ink/[0.07]">
-          <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Not Locally Available</h3>
-          <p class="text-muted text-[15px] leading-[1.65]">Supply chains rarely reach rural communities — where the need is greatest and the distance from aid the furthest.</p>
-        </div>
-      </div>
-
-      <!-- Quote -->
-      <div class="bg-ink rounded-2xl px-[52px] py-11 grid md:grid-cols-[1fr_80px] gap-10 items-center">
         <div>
-          <p class="text-cream text-[22px] font-medium leading-[1.55] italic">"Wheelchairs could be so much cheaper if they were simple enough to build yourself — like an IKEA flatpack."</p>
-          <div class="text-cream/40 text-[14px] font-medium mt-[18px]">— Johan Nieuwendijk, Co-founder · Biomechanical Engineer, TU Delft</div>
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 border rounded-full px-[14px] py-[5px] mb-9"
+               style="background: rgba(139,92,246,0.14); border-color: rgba(139,92,246,0.3)">
+            <span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-vivid flex-shrink-0 inline-block"></span>
+            <span class="text-[#a78bfa] text-[11px] font-semibold tracking-[0.1em] uppercase">Proof of Principle · 2026</span>
+          </div>
+
+          <h1 id="hero-heading" class="text-cream text-[64px] font-bold leading-[1.02] tracking-[-0.045em] mb-[26px]">
+            Engineering<br>Freedom.<br><span class="text-purple-vivid">Empowering</span><br>Lives.
+          </h1>
+          <p class="text-cream/60 text-[18px] leading-[1.65] mb-[42px] max-w-[420px]">
+            A modular, flat-pack wheelchair for everyone — designed for self-assembly, local repair, and community production in the places that need it most.
+          </p>
+          <div class="flex gap-[14px] flex-wrap">
+            <a href="#product"   class="inline-block bg-purple-brand text-white text-[15px] font-semibold no-underline px-7 py-[14px] rounded-lg hover:bg-purple-deep transition-colors duration-150 btn-magnetic ripple-btn">Meet the Polaris →</a>
+            <a href="#challenge" class="inline-block text-cream/70 text-[15px] font-medium no-underline px-7 py-[14px] rounded-lg hover:text-cream transition-all duration-150"
+               style="border: 1.5px solid rgba(247,246,243,0.18)">Our Story</a>
+          </div>
         </div>
-        <div class="flex items-center justify-center flex-shrink-0">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="27" stroke="#F7F6F3" stroke-width="2" opacity="0.25"/>
-            <line x1="32" y1="5" x2="32" y2="59" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-            <line x1="5" y1="32" x2="59" y2="32" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-            <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-            <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-            <circle cx="32" cy="32" r="4" fill="#F7F6F3" opacity="0.25"/>
-            <path d="M 6 52 C 20 40 38 22 57 10" stroke="#8B5CF6" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+        <!-- Image placeholder -->
+        <div class="relative">
+          <div class="h-[500px] rounded-2xl stripe-dark flex flex-col items-center justify-center gap-4"
+               role="img" aria-label="Product photography placeholder — Polaris Wheelchair"
+               style="border: 1px solid rgba(255,255,255,0.07)">
+            <svg aria-hidden="true" focusable="false" width="56" height="56" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="27" stroke="rgba(247,246,243,0.14)" stroke-width="2"/>
+              <line x1="32" y1="5" x2="32" y2="59" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="5" y1="32" x2="59" y2="32" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="rgba(247,246,243,0.14)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="4" fill="rgba(247,246,243,0.14)"/>
+              <path d="M 6 52 C 20 40 38 22 57 10" stroke="rgba(139,92,246,0.45)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="text-[12px] font-medium tracking-[0.08em]" style="color: rgba(247,246,243,0.22)">Product photography — Polaris Wheelchair</span>
+          </div>
+          <!-- Floating stat -->
+          <div class="absolute bottom-7 left-7 rounded-xl px-[22px] py-4 backdrop-blur-xl"
+               style="background: rgba(27,28,32,0.92); border: 1px solid rgba(255,255,255,0.1)">
+            <div class="text-purple-vivid text-[34px] font-bold tracking-[-0.04em] leading-none">€250</div>
+            <div class="text-cream/50 text-[12px] font-medium mt-0.5">Target price per wheelchair</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── THE CHALLENGE ── -->
+    <section id="challenge" aria-labelledby="challenge-heading" class="bg-cream py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto">
+
+        <div class="mb-[60px]">
+          <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Challenge</span>
+          <h2 id="challenge-heading" class="text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] mb-5 max-w-[680px]">Millions live without access to a wheelchair.</h2>
+          <p class="text-muted text-[18px] leading-[1.65] max-w-[600px]">The WHO estimates tens of millions of people need a wheelchair but cannot access one. The barriers are consistent — and preventable.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          <!-- Card 1 -->
+          <div class="bg-white rounded-xl p-9 border border-ink/[0.07] card-tilt">
+            <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]" aria-hidden="true">
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
+            <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Too Expensive</h3>
+            <p class="text-muted text-[15px] leading-[1.65]">Standard NGO wheelchairs cost around $395 — unaffordable for most families without external subsidy or international aid.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-white rounded-xl p-9 border border-ink/[0.07] card-tilt">
+            <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]" aria-hidden="true">
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+            </div>
+            <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Hard to Maintain</h3>
+            <p class="text-muted text-[15px] leading-[1.65]">Repairs require specialist technicians. In remote areas, a broken wheelchair can mean weeks without mobility and independence.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-white rounded-xl p-9 border border-ink/[0.07] card-tilt">
+            <div class="w-11 h-11 bg-purple-tint rounded-[10px] flex items-center justify-center mb-[22px]" aria-hidden="true">
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <h3 class="text-[21px] font-bold tracking-[-0.025em] mb-2.5">Not Locally Available</h3>
+            <p class="text-muted text-[15px] leading-[1.65]">Supply chains rarely reach rural communities — where the need is greatest and the distance from aid the furthest.</p>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="bg-ink rounded-2xl px-[52px] py-11 grid md:grid-cols-[1fr_80px] gap-10 items-center">
+          <figure>
+            <blockquote class="text-cream text-[22px] font-medium leading-[1.55] italic">
+              "Wheelchairs could be so much cheaper if they were simple enough to build yourself — like an IKEA flatpack."
+            </blockquote>
+            <figcaption class="text-cream/40 text-[14px] font-medium mt-[18px]">
+              — <cite>Johan Nieuwendijk, Co-founder · Biomechanical Engineer, TU Delft</cite>
+            </figcaption>
+          </figure>
+          <div aria-hidden="true" class="flex items-center justify-center flex-shrink-0">
+            <svg aria-hidden="true" focusable="false" width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="27" stroke="#F7F6F3" stroke-width="2" opacity="0.25"/>
+              <line x1="32" y1="5" x2="32" y2="59" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+              <line x1="5" y1="32" x2="59" y2="32" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+              <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+              <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="#F7F6F3" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+              <circle cx="32" cy="32" r="4" fill="#F7F6F3" opacity="0.25"/>
+              <path d="M 6 52 C 20 40 38 22 57 10" stroke="#8B5CF6" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── THE POLARIS WHEELCHAIR ── -->
+    <section id="product" aria-labelledby="product-heading" class="bg-white py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-20 items-center">
+
+        <!-- Placeholder -->
+        <div class="h-[580px] rounded-2xl stripe-light flex flex-col items-center justify-center gap-4 border border-ink/[0.07]"
+             role="img" aria-label="Polaris wheelchair exploded modular view — product photography coming soon">
+          <svg aria-hidden="true" focusable="false" width="56" height="56" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="27" stroke="rgba(27,28,32,0.18)" stroke-width="2"/>
+            <line x1="32" y1="5" x2="32" y2="59" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="5" y1="32" x2="59" y2="32" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="4" fill="rgba(27,28,32,0.18)"/>
+            <path d="M 6 52 C 20 40 38 22 57 10" stroke="rgba(107,63,160,0.45)" stroke-width="5" fill="none" stroke-linecap="round"/>
           </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── THE POLARIS WHEELCHAIR ── -->
-  <section id="product" class="bg-white py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-20 items-center">
-
-      <!-- Placeholder -->
-      <div class="h-[580px] rounded-2xl stripe-light flex flex-col items-center justify-center gap-4 border border-ink/[0.07]">
-        <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="27" stroke="rgba(27,28,32,0.18)" stroke-width="2"/>
-          <line x1="32" y1="5" x2="32" y2="59" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="5" y1="32" x2="59" y2="32" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="12.9" y1="12.9" x2="51.1" y2="51.1" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="51.1" y1="12.9" x2="12.9" y2="51.1" stroke="rgba(27,28,32,0.18)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="32" cy="32" r="4" fill="rgba(27,28,32,0.18)"/>
-          <path d="M 6 52 C 20 40 38 22 57 10" stroke="rgba(107,63,160,0.45)" stroke-width="5" fill="none" stroke-linecap="round"/>
-        </svg>
-        <span class="text-[12px] font-medium tracking-[0.08em]" style="color: rgba(27,28,32,0.28)">Polaris — exploded modular view</span>
-      </div>
-
-      <!-- Content -->
-      <div>
-        <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Solution</span>
-        <h2 class="text-[46px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] mb-5">The Polaris<br>Wheelchair</h2>
-        <p class="text-muted text-[16px] leading-[1.65] mb-8">A fully modular wheelchair platform built for self-assembly, independent maintenance, and local repair. A Poka-Yoke connection system ensures components only go together the right way — no specialist required, no manual needed beyond pictograms.</p>
-
-        <div class="mb-8">
-          <div class="text-[11px] font-bold tracking-[0.15em] uppercase text-ink mb-[14px]">6 Interchangeable Modules</div>
-          <div class="grid grid-cols-2 gap-2">
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Frame &amp; Chassis</span></div>
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Seat System</span></div>
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Drive Unit</span></div>
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Wheels</span></div>
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Footrests</span></div>
-            <div class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Cushions</span></div>
-          </div>
+          <span class="text-[12px] font-medium tracking-[0.08em]" style="color: rgba(27,28,32,0.28)">Polaris — exploded modular view</span>
         </div>
 
-        <!-- Price comparison -->
-        <div class="bg-purple-tint rounded-xl px-7 py-6 border-l-4 border-purple-brand">
-          <div class="flex justify-between items-end mb-3">
-            <div>
-              <div class="text-purple-brand text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">Polaris Target Price</div>
-              <div class="text-[42px] font-bold tracking-[-0.04em] text-ink leading-none">€250</div>
-            </div>
-            <div class="text-right">
-              <div class="text-[10px] font-semibold tracking-[0.12em] uppercase mb-1.5" style="color:#9CA3AF">Standard NGO</div>
-              <div class="text-[30px] font-semibold line-through leading-none" style="color:#C4C9D4">$395</div>
-            </div>
-          </div>
-          <div class="border-t border-purple-brand/20 pt-3 text-muted text-[13px] font-medium">Approximately 35% lower purchase cost per wheelchair</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── HOW IT WORKS ── -->
-  <section id="how" class="bg-ink py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto">
-
-      <div class="mb-16">
-        <span class="text-purple-vivid text-[11px] font-bold tracking-[0.2em] uppercase">Our Approach</span>
-        <h2 class="text-cream text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] max-w-[560px]">A new model for global mobility.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-[18px] mb-9">
-        <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
-          <div class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">01</div>
-          <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Design for Local Manufacturing</h3>
-          <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">CNC milling, sheet metal bending — no welding. Producible anywhere with basic industrial capacity.</p>
-        </div>
-        <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
-          <div class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">02</div>
-          <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Flat-Pack Distribution</h3>
-          <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Ships as a compact kit. Up to 3× more wheelchairs per container. Lower costs, faster NGO deployment.</p>
-        </div>
-        <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
-          <div class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">03</div>
-          <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Community Assembly</h3>
-          <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Pictogram-based instructions. No text, no specialists. Assembly creates ownership and enables local repair.</p>
-        </div>
-        <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
-          <div class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">04</div>
-          <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Local Production</h3>
-          <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Long-term: local factories, local jobs, local supply chains. Communities build and own their mobility solutions.</p>
-        </div>
-      </div>
-
-      <!-- Zambia callout -->
-      <div class="rounded-xl px-9 py-7 flex items-center gap-6" style="background: rgba(139,92,246,0.10); border: 1px solid rgba(139,92,246,0.22)">
-        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#8B5CF6"/>
-        </svg>
+        <!-- Content -->
         <div>
-          <div class="text-cream text-[16px] font-semibold mb-1">Next Milestone: Field Test in Zambia</div>
-          <div class="text-[14px] leading-[1.6]" style="color: rgba(247,246,243,0.5)">15 prototype wheelchairs deployed with BluSpring and local partners — evaluating assembly experience, durability, user satisfaction, and clinical outcomes.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Solution</span>
+          <h2 id="product-heading" class="text-[46px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] mb-5">The Polaris<br>Wheelchair</h2>
+          <p class="text-muted text-[16px] leading-[1.65] mb-8">A fully modular wheelchair platform built for self-assembly, independent maintenance, and local repair. A Poka-Yoke connection system ensures components only go together the right way — no specialist required, no manual needed beyond pictograms.</p>
 
+          <div class="mb-8">
+            <div class="text-[11px] font-bold tracking-[0.15em] uppercase text-ink mb-[14px]">6 Interchangeable Modules</div>
+            <ul class="grid grid-cols-2 gap-2" aria-label="Polaris wheelchair modules">
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Frame &amp; Chassis</span></li>
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Seat System</span></li>
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Drive Unit</span></li>
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Wheels</span></li>
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Footrests</span></li>
+              <li class="flex items-center gap-2.5 px-[14px] py-2.5 bg-cream rounded-lg"><span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-purple-brand flex-shrink-0 inline-block"></span><span class="text-[14px] font-medium">Cushions</span></li>
+            </ul>
+          </div>
 
-  <!-- ── IMPACT ── -->
-  <section id="impact" class="bg-purple-brand py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto">
-      <div class="mb-16">
-        <span class="text-white/50 text-[11px] font-bold tracking-[0.2em] uppercase">Our Impact</span>
-        <h2 class="text-white text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] max-w-[540px]">Designed for measurable, lasting impact.</h2>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden bg-white/20">
-        <div class="bg-purple-brand px-9 py-12">
-          <div class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px]">35%</div>
-          <div class="text-white/65 text-[15px] font-medium leading-[1.5]">Lower purchase cost vs. standard NGO wheelchair</div>
-        </div>
-        <div class="bg-purple-brand px-9 py-12">
-          <div class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px]">3×</div>
-          <div class="text-white/65 text-[15px] font-medium leading-[1.5]">More wheelchairs shipped per container</div>
-        </div>
-        <div class="bg-purple-brand px-9 py-12">
-          <div class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px]">€250</div>
-          <div class="text-white/65 text-[15px] font-medium leading-[1.5]">Target price — first production run</div>
-        </div>
-        <div class="bg-purple-brand px-9 py-12">
-          <div class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px]">0</div>
-          <div class="text-white/65 text-[15px] font-medium leading-[1.5]">Specialist technicians needed to assemble or repair</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ── TEAM ── -->
-  <section id="team" class="bg-cream py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto">
-      <div class="mb-16">
-        <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Team</span>
-        <h2 class="text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px]">Built by people<br>who've lived it.</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Johan -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07]">
-          <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3">
-            <div class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
-              <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">JN</span>
+          <!-- Price comparison -->
+          <div class="bg-purple-tint rounded-xl px-7 py-6 border-l-4 border-purple-brand">
+            <div class="flex justify-between items-end mb-3">
+              <div>
+                <div class="text-purple-brand text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">Polaris Target Price</div>
+                <div class="text-[42px] font-bold tracking-[-0.04em] text-ink leading-none">€250</div>
+              </div>
+              <div class="text-right">
+                <div class="text-[10px] font-semibold tracking-[0.12em] uppercase mb-1.5" style="color:#9CA3AF">Standard NGO</div>
+                <s class="text-[30px] font-semibold leading-none block" style="color:#C4C9D4" aria-label="Standard NGO wheelchair: $395">$395</s>
+              </div>
             </div>
-            <span class="text-[11px] font-medium tracking-[0.07em]" style="color: rgba(27,28,32,0.22)">Portrait photo</span>
+            <div class="border-t border-purple-brand/20 pt-3 text-muted text-[13px] font-medium">Approximately 35% lower purchase cost per wheelchair</div>
           </div>
-          <div class="px-7 pt-7 pb-8">
-            <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Johan Nieuwendijk</div>
-            <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Co-founder · Engineer</div>
-            <p class="text-muted text-[14px] leading-[1.65]">Biomechanical engineer from TU Delft. Designs products that are affordable, manufacturable, and robust for challenging environments worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how" aria-labelledby="how-heading" class="bg-ink py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto">
+
+        <div class="mb-16">
+          <span class="text-purple-vivid text-[11px] font-bold tracking-[0.2em] uppercase">Our Approach</span>
+          <h2 id="how-heading" class="text-cream text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] max-w-[560px]">A new model for global mobility.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-[18px] mb-9">
+          <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
+            <div aria-hidden="true" class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">01</div>
+            <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Design for Local Manufacturing</h3>
+            <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">CNC milling, sheet metal bending — no welding. Producible anywhere with basic industrial capacity.</p>
+          </div>
+          <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
+            <div aria-hidden="true" class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">02</div>
+            <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Flat-Pack Distribution</h3>
+            <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Ships as a compact kit. Up to 3× more wheelchairs per container. Lower costs, faster NGO deployment.</p>
+          </div>
+          <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
+            <div aria-hidden="true" class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">03</div>
+            <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Community Assembly</h3>
+            <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Pictogram-based instructions. No text, no specialists. Assembly creates ownership and enables local repair.</p>
+          </div>
+          <div class="rounded-xl px-[26px] py-8" style="background: rgba(247,246,243,0.04); border: 1px solid rgba(247,246,243,0.08)">
+            <div aria-hidden="true" class="text-purple-vivid text-[46px] font-bold tracking-[-0.05em] leading-none mb-6">04</div>
+            <h3 class="text-cream text-[17px] font-bold mb-3 leading-[1.35]">Local Production</h3>
+            <p class="text-[14px] leading-[1.65]" style="color: rgba(247,246,243,0.46)">Long-term: local factories, local jobs, local supply chains. Communities build and own their mobility solutions.</p>
           </div>
         </div>
 
-        <!-- Thomas -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07]">
-          <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3">
-            <div class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
-              <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">TM</span>
+        <!-- Zambia callout -->
+        <div class="rounded-xl px-9 py-7 flex items-center gap-6" style="background: rgba(139,92,246,0.10); border: 1px solid rgba(139,92,246,0.22)">
+          <svg aria-hidden="true" focusable="false" width="42" height="42" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#8B5CF6"/>
+          </svg>
+          <div>
+            <div class="text-cream text-[16px] font-semibold mb-1">Next Milestone: Field Test in Zambia</div>
+            <div class="text-[14px] leading-[1.6]" style="color: rgba(247,246,243,0.5)">15 prototype wheelchairs deployed with BluSpring and local partners — evaluating assembly experience, durability, user satisfaction, and clinical outcomes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── IMPACT ── -->
+    <section id="impact" aria-labelledby="impact-heading" class="bg-purple-brand py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="mb-16">
+          <span class="text-white/50 text-[11px] font-bold tracking-[0.2em] uppercase">Our Impact</span>
+          <h2 id="impact-heading" class="text-white text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px] max-w-[540px]">Designed for measurable, lasting impact.</h2>
+        </div>
+        <dl class="grid grid-cols-2 md:grid-cols-4 gap-[2px] rounded-2xl overflow-hidden bg-white/20">
+          <div class="bg-purple-brand px-9 py-12">
+            <dt class="text-white/65 text-[15px] font-medium leading-[1.5] order-2">Lower purchase cost vs. standard NGO wheelchair</dt>
+            <dd class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px] order-1">35%</dd>
+          </div>
+          <div class="bg-purple-brand px-9 py-12">
+            <dt class="text-white/65 text-[15px] font-medium leading-[1.5] order-2">More wheelchairs shipped per container</dt>
+            <dd class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px] order-1">3×</dd>
+          </div>
+          <div class="bg-purple-brand px-9 py-12">
+            <dt class="text-white/65 text-[15px] font-medium leading-[1.5] order-2">Target price — first production run</dt>
+            <dd class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px] order-1">€250</dd>
+          </div>
+          <div class="bg-purple-brand px-9 py-12">
+            <dt class="text-white/65 text-[15px] font-medium leading-[1.5] order-2">Specialist technicians needed to assemble or repair</dt>
+            <dd class="text-white text-[66px] font-bold tracking-[-0.05em] leading-none mb-[14px] order-1">0</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+
+    <!-- ── TEAM ── -->
+    <section id="team" aria-labelledby="team-heading" class="bg-cream py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="mb-16">
+          <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">The Team</span>
+          <h2 id="team-heading" class="text-[50px] font-bold tracking-[-0.04em] leading-[1.03] mt-[14px]">Built by people<br>who've lived it.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Johan -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07] card-tilt">
+            <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3"
+                 role="img" aria-label="Portrait photo of Johan Nieuwendijk — coming soon">
+              <div aria-hidden="true" class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
+                <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">JN</span>
+              </div>
             </div>
-            <span class="text-[11px] font-medium tracking-[0.07em]" style="color: rgba(27,28,32,0.22)">Portrait photo</span>
-          </div>
-          <div class="px-7 pt-7 pb-8">
-            <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Thomas Maas</div>
-            <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Co-founder · User Expert</div>
-            <p class="text-muted text-[14px] leading-[1.65]">Wheelchair user. 20+ years of international disability and mobility project experience. Bridges engineering and real-world user needs.</p>
-          </div>
-        </div>
-
-        <!-- Jules -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07]">
-          <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3">
-            <div class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
-              <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">JB</span>
+            <div class="px-7 pt-7 pb-8">
+              <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Johan Nieuwendijk</div>
+              <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Co-founder · Engineer</div>
+              <p class="text-muted text-[14px] leading-[1.65]">Biomechanical engineer from TU Delft. Designs products that are affordable, manufacturable, and robust for challenging environments worldwide.</p>
             </div>
-            <span class="text-[11px] font-medium tracking-[0.07em]" style="color: rgba(27,28,32,0.22)">Portrait photo</span>
-          </div>
-          <div class="px-7 pt-7 pb-8">
-            <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Jules — BluSpring</div>
-            <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Field Partner · Zambia</div>
-            <p class="text-muted text-[14px] leading-[1.65]">Years of experience providing wheelchairs and disability services across Zambia. Brings field knowledge, local partnerships, and direct community access.</p>
-          </div>
+          </article>
+
+          <!-- Thomas -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07] card-tilt">
+            <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3"
+                 role="img" aria-label="Portrait photo of Thomas Maas — coming soon">
+              <div aria-hidden="true" class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
+                <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">TM</span>
+              </div>
+            </div>
+            <div class="px-7 pt-7 pb-8">
+              <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Thomas Maas</div>
+              <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Co-founder · User Expert</div>
+              <p class="text-muted text-[14px] leading-[1.65]">Wheelchair user. 20+ years of international disability and mobility project experience. Bridges engineering and real-world user needs.</p>
+            </div>
+          </article>
+
+          <!-- Jules -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-ink/[0.07] card-tilt">
+            <div class="h-[240px] stripe-light flex flex-col items-center justify-center gap-3"
+                 role="img" aria-label="Portrait photo of Jules from BluSpring — coming soon">
+              <div aria-hidden="true" class="w-[72px] h-[72px] rounded-full flex items-center justify-center" style="background: rgba(27,28,32,0.09)">
+                <span class="text-[22px] font-bold tracking-[-0.02em]" style="color: rgba(27,28,32,0.28)">JB</span>
+              </div>
+            </div>
+            <div class="px-7 pt-7 pb-8">
+              <div class="text-[21px] font-bold tracking-[-0.025em] mb-1">Jules — BluSpring</div>
+              <div class="text-purple-brand text-[13px] font-semibold tracking-[0.04em] mb-[14px]">Field Partner · Zambia</div>
+              <p class="text-muted text-[14px] leading-[1.65]">Years of experience providing wheelchairs and disability services across Zambia. Brings field knowledge, local partnerships, and direct community access.</p>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ── WHAT WE NEED ── -->
-  <section id="partners" class="bg-purple-light py-[100px] px-10">
-    <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-20 items-start">
+    <!-- ── WHAT WE NEED ── -->
+    <section id="partners" aria-labelledby="partners-heading" class="bg-purple-light py-[100px] px-10">
+      <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-20 items-start">
 
-      <div class="pt-1.5">
-        <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">Get Involved</span>
-        <h2 class="text-[46px] font-bold tracking-[-0.04em] leading-[1.04] mt-[14px] mb-5">Let's build this together.</h2>
-        <p class="text-[17px] leading-[1.65] mb-9" style="color:#4A4C56">We are moving from prototype to impact and actively seeking partners across the value chain. Pre-series production is on the horizon — making wheelchair manufacturing scalable and accessible at last.</p>
-        <a href="mailto:hello@wheels2fly.com" class="inline-block bg-purple-brand text-white text-[15px] font-semibold no-underline px-7 py-[14px] rounded-lg hover:bg-purple-deep transition-colors duration-150">Get In Touch →</a>
+        <div class="pt-1.5">
+          <span class="text-purple-brand text-[11px] font-bold tracking-[0.2em] uppercase">Get Involved</span>
+          <h2 id="partners-heading" class="text-[46px] font-bold tracking-[-0.04em] leading-[1.04] mt-[14px] mb-5">Let's build this together.</h2>
+          <p class="text-[17px] leading-[1.65] mb-9" style="color:#4A4C56">We are moving from prototype to impact and actively seeking partners across the value chain. Pre-series production is on the horizon — making wheelchair manufacturing scalable and accessible at last.</p>
+          <a href="mailto:hello@wheels2fly.com" class="inline-block bg-purple-brand text-white text-[15px] font-semibold no-underline px-7 py-[14px] rounded-lg hover:bg-purple-deep transition-colors duration-150 btn-magnetic ripple-btn">Get In Touch →</a>
+        </div>
+
+        <ul class="grid grid-cols-2 gap-3" aria-label="Partnership types">
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">Investors</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Seed, impact &amp; pre-series funding</div>
+          </li>
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">Manufacturing</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Production &amp; supply chain partners</div>
+          </li>
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">NGO Partners</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Distribution &amp; deployment networks</div>
+          </li>
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">Pilot Deployment</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Field test &amp; validation partners</div>
+          </li>
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">Grant Funding</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Research &amp; impact grant programs</div>
+          </li>
+          <li class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
+            <div aria-hidden="true" class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+            <div class="text-[15px] font-bold mb-1">Strategic</div>
+            <div class="text-muted text-[13px] leading-[1.5]">Advisory, legal &amp; clinical expertise</div>
+          </li>
+        </ul>
       </div>
+    </section>
 
-      <div class="grid grid-cols-2 gap-3">
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">Investors</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Seed, impact &amp; pre-series funding</div>
-        </div>
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">Manufacturing</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Production &amp; supply chain partners</div>
-        </div>
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">NGO Partners</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Distribution &amp; deployment networks</div>
-        </div>
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">Pilot Deployment</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Field test &amp; validation partners</div>
-        </div>
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">Grant Funding</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Research &amp; impact grant programs</div>
-        </div>
-        <div class="bg-white rounded-xl p-[22px] border border-purple-brand/15">
-          <div class="w-9 h-9 bg-purple-tint rounded-lg mb-3 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6B3FA0"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
-          <div class="text-[15px] font-bold mb-1">Strategic</div>
-          <div class="text-muted text-[13px] leading-[1.5]">Advisory, legal &amp; clinical expertise</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
 
   <!-- ── FOOTER ── -->
@@ -693,8 +857,8 @@ img, video { max-width: 100%; height: auto; }
     <div class="max-w-[1200px] mx-auto">
       <div class="flex justify-between items-start mb-12">
         <div>
-          <a href="#hero" class="inline-flex items-center gap-3 no-underline mb-4">
-            <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+          <a href="#hero" aria-label="Wheels 2 Fly — back to top" class="inline-flex items-center gap-3 no-underline mb-4">
+            <svg aria-hidden="true" focusable="false" width="32" height="32" viewBox="0 0 64 64" fill="none">
               <circle cx="32" cy="32" r="27" stroke="#F7F6F3" stroke-width="2.5"/>
               <line x1="32" y1="5" x2="32" y2="59" stroke="#F7F6F3" stroke-width="1.8" stroke-linecap="round"/>
               <line x1="5" y1="32" x2="59" y2="32" stroke="#F7F6F3" stroke-width="1.8" stroke-linecap="round"/>
@@ -723,5 +887,107 @@ img, video { max-width: 100%; height: auto; }
     </div>
   </footer>
 
+  <script>
+  (function () {
+    'use strict';
+
+    // ── Cursor ring (fine-pointer devices only) ──────────────────
+    if (window.matchMedia('(pointer: fine)').matches) {
+      const ring = document.createElement('div');
+      ring.className = 'cursor-ring';
+      document.body.appendChild(ring);
+
+      let mx = 0, my = 0, rx = 0, ry = 0, visible = false;
+
+      document.addEventListener('mousemove', function (e) {
+        mx = e.clientX;
+        my = e.clientY;
+        if (!visible) { visible = true; ring.classList.add('visible'); }
+      });
+
+      (function tick() {
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        ring.style.transform = 'translate(' + (rx - 14) + 'px, ' + (ry - 14) + 'px)';
+        requestAnimationFrame(tick);
+      })();
+
+      document.querySelectorAll('a, button').forEach(function (el) {
+        el.addEventListener('mouseenter', function () { ring.classList.add('is-hovering'); });
+        el.addEventListener('mouseleave', function () { ring.classList.remove('is-hovering'); });
+      });
+    }
+
+    // ── Hero spotlight ───────────────────────────────────────────
+    var hero = document.getElementById('hero');
+    if (hero) {
+      var originalBg = hero.style.background;
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+        var y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+        hero.style.background =
+          'radial-gradient(ellipse 80% 70% at ' + x + '% ' + y + '%, rgba(107,63,160,0.26) 0%, rgba(107,63,160,0.07) 44%, #1B1C20 65%)';
+      });
+      hero.addEventListener('mouseleave', function () {
+        hero.style.background = originalBg;
+      });
+    }
+
+    // ── Magnetic buttons ─────────────────────────────────────────
+    document.querySelectorAll('.btn-magnetic').forEach(function (btn) {
+      var restoreTimer;
+      btn.addEventListener('mouseenter', function () {
+        clearTimeout(restoreTimer);
+        btn.style.transition = 'transform 0.1s ease';
+      });
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width  / 2) * 0.22;
+        var y = (e.clientY - r.top  - r.height / 2) * 0.30;
+        btn.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transition = 'transform 0.45s cubic-bezier(0.23, 1, 0.32, 1)';
+        btn.style.transform = '';
+        restoreTimer = setTimeout(function () { btn.style.transition = ''; }, 450);
+      });
+    });
+
+    // ── Click ripple ─────────────────────────────────────────────
+    document.querySelectorAll('.ripple-btn').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        var r    = el.getBoundingClientRect();
+        var size = Math.max(r.width, r.height) * 2.2;
+        var wave = document.createElement('span');
+        wave.className = 'ripple-wave';
+        wave.style.cssText =
+          'width:' + size + 'px;height:' + size + 'px;' +
+          'left:'  + (e.clientX - r.left - size / 2) + 'px;' +
+          'top:'   + (e.clientY - r.top  - size / 2) + 'px;';
+        el.appendChild(wave);
+        wave.addEventListener('animationend', function () { wave.remove(); }, { once: true });
+      });
+    });
+
+    // ── Card 3-D tilt ────────────────────────────────────────────
+    document.querySelectorAll('.card-tilt').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width  - 0.5;
+        var y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
+        card.style.transform  = 'perspective(700px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 8) + 'deg) translateZ(8px)';
+        card.style.boxShadow  = (-x * 14) + 'px ' + (-y * 14) + 'px 32px rgba(107,63,160,0.14)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.55s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.55s cubic-bezier(0.23, 1, 0.32, 1)';
+        card.style.transform  = '';
+        card.style.boxShadow  = '';
+      });
+    });
+
+  })();
+  </script>
 </body>
 </html>
